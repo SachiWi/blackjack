@@ -1,37 +1,65 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class InputCollectorTest {
+    public InputCollectorTest() {
+    }
 
-       @Test
+    @Test
     public void collectAction_withPlay_shouldReturnPLAYAction() throws ActionNotSupportedException {
         InputCollector inputCollector = new InputCollector();
         Action action = inputCollector.collectAction("play");
-        assertEquals(Action.PLAY, action);
+        Assert.assertEquals(Action.PLAY, action);
     }
 
     @Test
     public void collectAction_withHold_shouldReturnHOLDAction() throws ActionNotSupportedException {
         InputCollector inputCollector = new InputCollector();
         Action action = inputCollector.collectAction("hold");
-        assertEquals(Action.HOLD, action);
+        Assert.assertEquals(Action.HOLD, action);
     }
 
     @Test
     public void collectAction_withDifferentCasePlay_shouldReturnPLAYAction() throws ActionNotSupportedException {
         InputCollector inputCollector = new InputCollector();
         Action action = inputCollector.collectAction("pLAy");
-        assertEquals(Action.PLAY, action);
+        Assert.assertEquals(Action.PLAY, action);
     }
 
     @Test
     public void collectAction_withDifferentCaseHold_shouldReturnHOLDAction() throws ActionNotSupportedException {
         InputCollector inputCollector = new InputCollector();
         Action action = inputCollector.collectAction("hOLD");
-        assertEquals(Action.HOLD, action);
+        Assert.assertEquals(Action.HOLD, action);
+    }
+
+    @Test(
+            expected = ActionNotSupportedException.class
+    )
+    public void collectAction_withUnsupportedAction_shouldThrowException() throws ActionNotSupportedException {
+        InputCollector inputCollector = new InputCollector();
+        Action action = inputCollector.collectAction("wait");
+    }
+
+    @Test(
+            expected = ActionNotSupportedException.class
+    )
+    public void collectAction_withEmptyAction_shouldThrowException() throws ActionNotSupportedException {
+        InputCollector inputCollector = new InputCollector();
+        Action action = inputCollector.collectAction("");
     }
 
 
-   
+    @Test(
+            expected = ActionNotSupportedException.class
+    )
+    public void collectAction_withNullAction_shouldThrowException() throws ActionNotSupportedException {
+        InputCollector inputCollector = new InputCollector();
+        Action action = inputCollector.collectAction (null);
+    }
 }
