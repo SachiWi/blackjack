@@ -18,4 +18,16 @@ public class DiceTest {
     public void tearDown() throws Exception {
         dice = null;
     }
+    
+    @Test
+    public void roll_checkAboveSix() {
+        int value = dice.roll();
+        assertFalse(value>6);
+    }
+
+    @Test
+    public void roll_checkBelowOne() {
+        int value = dice.roll();
+        assertFalse(value<1);
+    }
 }
