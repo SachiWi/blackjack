@@ -31,7 +31,29 @@ public class InputCollectorTest {
         Action action = inputCollector.collectAction("hOLD");
         assertEquals(Action.HOLD, action);
     }
+       
+    @Test(
+            expected = ActionNotSupportedException.class
+    )
+    public void collectAction_withUnsupportedAction_shouldThrowException() throws ActionNotSupportedException {
+        InputCollector inputCollector = new InputCollector();
+        Action action = inputCollector.collectAction("wait");
+    }
+
+    @Test(
+            expected = ActionNotSupportedException.class
+    )
+    public void collectAction_withEmptyAction_shouldThrowException() throws ActionNotSupportedException {
+        InputCollector inputCollector = new InputCollector();
+        Action action = inputCollector.collectAction("");
+    }
 
 
-   
+    @Test(
+            expected = ActionNotSupportedException.class
+    )
+    public void collectAction_withNullAction_shouldThrowException() throws ActionNotSupportedException {
+        InputCollector inputCollector = new InputCollector();
+        Action action = inputCollector.collectAction (null);
+    }   
 }
