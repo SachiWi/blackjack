@@ -1,0 +1,12 @@
+Simulated conversation with customer :
+
+Q: Sir, understand we are developing a dice game, what message would your team like to show when the game launches?
+A: when the user launches the game, he should got an initial scores and a following instruction to start the game, and only play or hold are available.
+Q: That’s great, do you want the two options to be accepted in both lower and uppercase?
+A: Yes, that’s what we want, and if the player enter any character beyond that, he should get an error message, the game will automatically finish.
+Q: Cool, and what would your team like the play rules scheme to be ?
+A: when the player choose to play, he will get a total score based on the two dice value
+   When the player choose to hold, it’s the computer turn, another score will be generated
+   Every round score should summed up the previous score.
+   The player have unlimited chance to choose play or hold.
+   The winner of the game should determine when the closest round to 21
